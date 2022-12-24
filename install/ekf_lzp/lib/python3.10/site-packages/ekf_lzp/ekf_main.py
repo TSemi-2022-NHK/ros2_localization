@@ -8,7 +8,7 @@ def main(args=None):
 
     rclpy.spin(node)
 
-    ekf_node.destroy_node()
+    node.destroy_node()
 
     rclpy.shutdown()
 

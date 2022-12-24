@@ -96,6 +96,8 @@ class EkfNode(Node):
 
         self.ekf.predict(transformed_msg) #tf変換処理してからpredictへ
 
+        self.get_logger().info("Subscribe : " + msg.data)
+
 
     #odomメッセージを処理
     def odom_callback(self, msg):
@@ -110,6 +112,8 @@ class EkfNode(Node):
         z = np.matrix([self.odom_x[0], self.odom_x[1], self.odom_x[2]])
 
         self.ekf.ekf_estimation(z) #観測値に相当
+
+        self.get_logger().info("Subscribe : " + msg.data)
 
 
     #1秒ごとに実行
