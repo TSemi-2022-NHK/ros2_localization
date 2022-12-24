@@ -8,6 +8,7 @@ g = np.matrix([0, 0, 9.80665]).T
 class Ekf:
     def __init__(self, initial_x = np.zeros(10), initial_p = np.eye(9) * 100):
         self.x = initial_x #初期状態 np.matrix(x, y, z, vx, vy, vz, qx,qy, qz, qw)　= (p v q)
+                           # = (位置座標 速度 クオータニオン)
         self.p = initial_p #共分散
 
         self.Q = np.eye(3) #適当な初期化
