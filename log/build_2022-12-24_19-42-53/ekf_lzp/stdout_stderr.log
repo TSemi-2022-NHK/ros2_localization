@@ -1,0 +1,22 @@
+running egg_info
+writing ../../build/ekf_lzp/ekf_lzp.egg-info/PKG-INFO
+writing dependency_links to ../../build/ekf_lzp/ekf_lzp.egg-info/dependency_links.txt
+writing entry points to ../../build/ekf_lzp/ekf_lzp.egg-info/entry_points.txt
+writing requirements to ../../build/ekf_lzp/ekf_lzp.egg-info/requires.txt
+writing top-level names to ../../build/ekf_lzp/ekf_lzp.egg-info/top_level.txt
+reading manifest file '../../build/ekf_lzp/ekf_lzp.egg-info/SOURCES.txt'
+writing manifest file '../../build/ekf_lzp/ekf_lzp.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+/home/kazuma/.local/lib/python3.10/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running install_lib
+running install_data
+copying launch/ekf.launch.py -> /home/kazuma/ros2_ws2/install/ekf_lzp/share/ekf_lzp/launch
+running install_egg_info
+removing '/home/kazuma/ros2_ws2/install/ekf_lzp/lib/python3.10/site-packages/ekf_lzp-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/ekf_lzp/ekf_lzp.egg-info to /home/kazuma/ros2_ws2/install/ekf_lzp/lib/python3.10/site-packages/ekf_lzp-0.0.0-py3.10.egg-info
+running install_scripts
+Installing ekf_main script to /home/kazuma/ros2_ws2/install/ekf_lzp/lib/ekf_lzp
+writing list of installed files to '/home/kazuma/ros2_ws2/build/ekf_lzp/install.log'

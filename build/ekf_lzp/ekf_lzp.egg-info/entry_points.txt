@@ -1,0 +1,2 @@
+[console_scripts]
+ekf_main = ekf_lzp.ekf_main:main

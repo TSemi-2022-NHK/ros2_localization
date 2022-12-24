@@ -1,0 +1,1 @@
+/home/kazuma/ros2_ws2/src/local/launch/gazebo_la.launch.py

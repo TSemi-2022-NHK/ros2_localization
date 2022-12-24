@@ -1,0 +1,1 @@
+/home/kazuma/ros2_ws2/build/local/ament_cmake_core/localConfig.cmake

@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+../../build/hello2/hello2.egg-info/PKG-INFO
+../../build/hello2/hello2.egg-info/SOURCES.txt
+../../build/hello2/hello2.egg-info/dependency_links.txt
+../../build/hello2/hello2.egg-info/requires.txt
+../../build/hello2/hello2.egg-info/top_level.txt
+../../build/hello2/hello2.egg-info/zip-safe
+hello2/__init__.py
+resource/hello2
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

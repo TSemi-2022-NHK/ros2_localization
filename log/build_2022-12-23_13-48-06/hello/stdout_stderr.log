@@ -1,0 +1,29 @@
+running egg_info
+writing ../../build/hello/hello.egg-info/PKG-INFO
+writing dependency_links to ../../build/hello/hello.egg-info/dependency_links.txt
+writing entry points to ../../build/hello/hello.egg-info/entry_points.txt
+writing requirements to ../../build/hello/hello.egg-info/requires.txt
+writing top-level names to ../../build/hello/hello.egg-info/top_level.txt
+reading manifest file '../../build/hello/hello.egg-info/SOURCES.txt'
+writing manifest file '../../build/hello/hello.egg-info/SOURCES.txt'
+running build
+running build_py
+copying hello/publisher_member_function.py -> /home/kazuma/ros2_ws2/build/hello/build/lib/hello
+copying hello/subscriber_member_function.py -> /home/kazuma/ros2_ws2/build/hello/build/lib/hello
+running install
+/home/kazuma/.local/lib/python3.10/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running install_lib
+copying /home/kazuma/ros2_ws2/build/hello/build/lib/hello/publisher_member_function.py -> /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello
+copying /home/kazuma/ros2_ws2/build/hello/build/lib/hello/subscriber_member_function.py -> /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello
+byte-compiling /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello/publisher_member_function.py to publisher_member_function.cpython-310.pyc
+byte-compiling /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello/subscriber_member_function.py to subscriber_member_function.cpython-310.pyc
+running install_data
+copying package.xml -> /home/kazuma/ros2_ws2/install/hello/local/share/hello
+running install_egg_info
+removing '/home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/hello/hello.egg-info to /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello-0.0.0-py3.10.egg-info
+running install_scripts
+Installing listener script to /home/kazuma/ros2_ws2/install/hello/lib/hello
+Installing talker script to /home/kazuma/ros2_ws2/install/hello/lib/hello
+writing list of installed files to '/home/kazuma/ros2_ws2/build/hello/install.log'

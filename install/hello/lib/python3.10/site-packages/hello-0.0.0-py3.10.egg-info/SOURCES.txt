@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+../../build/hello/hello.egg-info/PKG-INFO
+../../build/hello/hello.egg-info/SOURCES.txt
+../../build/hello/hello.egg-info/dependency_links.txt
+../../build/hello/hello.egg-info/entry_points.txt
+../../build/hello/hello.egg-info/requires.txt
+../../build/hello/hello.egg-info/top_level.txt
+../../build/hello/hello.egg-info/zip-safe
+hello/__init__.py
+hello/publisher_member_function.py
+hello/subscriber_member_function.py
+resource/hello
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

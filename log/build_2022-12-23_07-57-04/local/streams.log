@@ -1,0 +1,25 @@
+[0.019s] Invoking command in '/home/kazuma/ros2_ws2/build/local': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kazuma/ros2_ws3/install/hello:/home/kazuma/ros2_ws2/install/ros2_loc:/home/kazuma/ros2_ws2/install/hello:/opt/ros/humble /usr/bin/cmake --build /home/kazuma/ros2_ws2/build/local -- -j8 -l8
+[0.055s] Invoked command in '/home/kazuma/ros2_ws2/build/local' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kazuma/ros2_ws3/install/hello:/home/kazuma/ros2_ws2/install/ros2_loc:/home/kazuma/ros2_ws2/install/hello:/opt/ros/humble /usr/bin/cmake --build /home/kazuma/ros2_ws2/build/local -- -j8 -l8
+[0.085s] Invoking command in '/home/kazuma/ros2_ws2/build/local': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kazuma/ros2_ws3/install/hello:/home/kazuma/ros2_ws2/install/ros2_loc:/home/kazuma/ros2_ws2/install/hello:/opt/ros/humble /usr/bin/cmake --install /home/kazuma/ros2_ws2/build/local
+[0.092s] -- Install configuration: ""
+[0.092s] -- Execute custom install script
+[0.092s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/launch/gazebo_la.launch.py
+[0.093s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/launch/rviz2.launch.py
+[0.093s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/urdf/first_robot.urdf
+[0.093s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/rviz/first_robot.rviz
+[0.094s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/ament_index/resource_index/package_run_dependencies/local
+[0.094s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/ament_index/resource_index/parent_prefix_path/local
+[0.094s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/environment/ament_prefix_path.sh
+[0.094s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/environment/ament_prefix_path.dsv
+[0.094s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/environment/path.sh
+[0.095s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/environment/path.dsv
+[0.095s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/local_setup.bash
+[0.095s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/local_setup.sh
+[0.095s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/local_setup.zsh
+[0.096s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/local_setup.dsv
+[0.096s] -- Symlinking: /home/kazuma/ros2_ws2/install/local/share/local/package.dsv
+[0.105s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/ament_index/resource_index/packages/local
+[0.105s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/cmake/localConfig.cmake
+[0.106s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/cmake/localConfig-version.cmake
+[0.106s] -- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/package.xml
+[0.109s] Invoked command in '/home/kazuma/ros2_ws2/build/local' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kazuma/ros2_ws3/install/hello:/home/kazuma/ros2_ws2/install/ros2_loc:/home/kazuma/ros2_ws2/install/hello:/opt/ros/humble /usr/bin/cmake --install /home/kazuma/ros2_ws2/build/local

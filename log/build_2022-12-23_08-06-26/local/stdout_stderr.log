@@ -1,0 +1,21 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/launch/gazebo_la.launch.py
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/launch/rviz2.launch.py
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/urdf/first_robot.urdf
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/rviz/first_robot.rviz
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/ament_index/resource_index/package_run_dependencies/local
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/ament_index/resource_index/parent_prefix_path/local
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/environment/path.sh
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/environment/path.dsv
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/local_setup.bash
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/local_setup.sh
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/local_setup.zsh
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/local_setup.dsv
+-- Symlinking: /home/kazuma/ros2_ws2/install/local/share/local/package.dsv
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/ament_index/resource_index/packages/local
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/cmake/localConfig.cmake
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/cmake/localConfig-version.cmake
+-- Up-to-date symlink: /home/kazuma/ros2_ws2/install/local/share/local/package.xml

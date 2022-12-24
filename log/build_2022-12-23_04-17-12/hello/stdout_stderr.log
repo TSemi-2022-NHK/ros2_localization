@@ -1,0 +1,43 @@
+running egg_info
+creating ../../build/hello/hello.egg-info
+writing ../../build/hello/hello.egg-info/PKG-INFO
+writing dependency_links to ../../build/hello/hello.egg-info/dependency_links.txt
+writing entry points to ../../build/hello/hello.egg-info/entry_points.txt
+writing requirements to ../../build/hello/hello.egg-info/requires.txt
+writing top-level names to ../../build/hello/hello.egg-info/top_level.txt
+writing manifest file '../../build/hello/hello.egg-info/SOURCES.txt'
+reading manifest file '../../build/hello/hello.egg-info/SOURCES.txt'
+writing manifest file '../../build/hello/hello.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/kazuma/ros2_ws2/build/hello/build
+creating /home/kazuma/ros2_ws2/build/hello/build/lib
+creating /home/kazuma/ros2_ws2/build/hello/build/lib/hello
+copying hello/hello_node.py -> /home/kazuma/ros2_ws2/build/hello/build/lib/hello
+copying hello/__init__.py -> /home/kazuma/ros2_ws2/build/hello/build/lib/hello
+running install
+/home/kazuma/.local/lib/python3.10/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running install_lib
+creating /home/kazuma/ros2_ws2/install/hello/local
+creating /home/kazuma/ros2_ws2/install/hello/local/lib
+creating /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10
+creating /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages
+creating /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello
+copying /home/kazuma/ros2_ws2/build/hello/build/lib/hello/hello_node.py -> /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello
+copying /home/kazuma/ros2_ws2/build/hello/build/lib/hello/__init__.py -> /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello
+byte-compiling /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello/hello_node.py to hello_node.cpython-310.pyc
+byte-compiling /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/kazuma/ros2_ws2/install/hello/local/share
+creating /home/kazuma/ros2_ws2/install/hello/local/share/ament_index
+creating /home/kazuma/ros2_ws2/install/hello/local/share/ament_index/resource_index
+creating /home/kazuma/ros2_ws2/install/hello/local/share/ament_index/resource_index/packages
+copying resource/hello -> /home/kazuma/ros2_ws2/install/hello/local/share/ament_index/resource_index/packages
+creating /home/kazuma/ros2_ws2/install/hello/local/share/hello
+copying package.xml -> /home/kazuma/ros2_ws2/install/hello/local/share/hello
+running install_egg_info
+Copying ../../build/hello/hello.egg-info to /home/kazuma/ros2_ws2/install/hello/local/lib/python3.10/dist-packages/hello-0.0.0-py3.10.egg-info
+running install_scripts
+Installing hello_node script to /home/kazuma/ros2_ws2/install/hello/lib/hello
+writing list of installed files to '/home/kazuma/ros2_ws2/build/hello/install.log'

@@ -1,0 +1,40 @@
+[1.009s] Invoking command in '/home/kazuma/ros2_ws2/src/hello2': PYTHONPATH=/home/kazuma/ros2_ws2/install/hello2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/hello2 build --build-base /home/kazuma/ros2_ws2/build/hello2/build install --prefix /home/kazuma/ros2_ws2/install/hello2 --record /home/kazuma/ros2_ws2/build/hello2/install.log --single-version-externally-managed
+[1.384s] running egg_info
+[1.385s] creating ../../build/hello2/hello2.egg-info
+[1.397s] writing ../../build/hello2/hello2.egg-info/PKG-INFO
+[1.397s] writing dependency_links to ../../build/hello2/hello2.egg-info/dependency_links.txt
+[1.398s] writing requirements to ../../build/hello2/hello2.egg-info/requires.txt
+[1.398s] writing top-level names to ../../build/hello2/hello2.egg-info/top_level.txt
+[1.398s] writing manifest file '../../build/hello2/hello2.egg-info/SOURCES.txt'
+[1.425s] reading manifest file '../../build/hello2/hello2.egg-info/SOURCES.txt'
+[1.425s] writing manifest file '../../build/hello2/hello2.egg-info/SOURCES.txt'
+[1.426s] running build
+[1.426s] running build_py
+[1.426s] creating /home/kazuma/ros2_ws2/build/hello2/build
+[1.426s] creating /home/kazuma/ros2_ws2/build/hello2/build/lib
+[1.426s] creating /home/kazuma/ros2_ws2/build/hello2/build/lib/hello2
+[1.426s] copying hello2/__init__.py -> /home/kazuma/ros2_ws2/build/hello2/build/lib/hello2
+[1.426s] running install
+[1.426s] /home/kazuma/.local/lib/python3.10/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.427s]   warnings.warn(
+[1.432s] running install_lib
+[1.445s] creating /home/kazuma/ros2_ws2/install/hello2/local
+[1.445s] creating /home/kazuma/ros2_ws2/install/hello2/local/lib
+[1.445s] creating /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10
+[1.445s] creating /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages
+[1.445s] creating /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages/hello2
+[1.446s] copying /home/kazuma/ros2_ws2/build/hello2/build/lib/hello2/__init__.py -> /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages/hello2
+[1.446s] byte-compiling /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages/hello2/__init__.py to __init__.cpython-310.pyc
+[1.446s] running install_data
+[1.468s] creating /home/kazuma/ros2_ws2/install/hello2/local/share
+[1.468s] creating /home/kazuma/ros2_ws2/install/hello2/local/share/ament_index
+[1.468s] creating /home/kazuma/ros2_ws2/install/hello2/local/share/ament_index/resource_index
+[1.468s] creating /home/kazuma/ros2_ws2/install/hello2/local/share/ament_index/resource_index/packages
+[1.468s] copying resource/hello2 -> /home/kazuma/ros2_ws2/install/hello2/local/share/ament_index/resource_index/packages
+[1.469s] creating /home/kazuma/ros2_ws2/install/hello2/local/share/hello2
+[1.469s] copying package.xml -> /home/kazuma/ros2_ws2/install/hello2/local/share/hello2
+[1.469s] running install_egg_info
+[1.484s] Copying ../../build/hello2/hello2.egg-info to /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages/hello2-0.0.0-py3.10.egg-info
+[1.485s] running install_scripts
+[1.539s] writing list of installed files to '/home/kazuma/ros2_ws2/build/hello2/install.log'
+[1.586s] Invoked command in '/home/kazuma/ros2_ws2/src/hello2' returned '0': PYTHONPATH=/home/kazuma/ros2_ws2/install/hello2/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/hello2 build --build-base /home/kazuma/ros2_ws2/build/hello2/build install --prefix /home/kazuma/ros2_ws2/install/hello2 --record /home/kazuma/ros2_ws2/build/hello2/install.log --single-version-externally-managed

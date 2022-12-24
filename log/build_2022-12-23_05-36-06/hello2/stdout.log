@@ -1,0 +1,36 @@
+running egg_info
+creating ../../build/hello2/hello2.egg-info
+writing ../../build/hello2/hello2.egg-info/PKG-INFO
+writing dependency_links to ../../build/hello2/hello2.egg-info/dependency_links.txt
+writing requirements to ../../build/hello2/hello2.egg-info/requires.txt
+writing top-level names to ../../build/hello2/hello2.egg-info/top_level.txt
+writing manifest file '../../build/hello2/hello2.egg-info/SOURCES.txt'
+reading manifest file '../../build/hello2/hello2.egg-info/SOURCES.txt'
+writing manifest file '../../build/hello2/hello2.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/kazuma/ros2_ws2/build/hello2/build
+creating /home/kazuma/ros2_ws2/build/hello2/build/lib
+creating /home/kazuma/ros2_ws2/build/hello2/build/lib/hello2
+copying hello2/__init__.py -> /home/kazuma/ros2_ws2/build/hello2/build/lib/hello2
+running install
+running install_lib
+creating /home/kazuma/ros2_ws2/install/hello2/local
+creating /home/kazuma/ros2_ws2/install/hello2/local/lib
+creating /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10
+creating /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages
+creating /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages/hello2
+copying /home/kazuma/ros2_ws2/build/hello2/build/lib/hello2/__init__.py -> /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages/hello2
+byte-compiling /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages/hello2/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/kazuma/ros2_ws2/install/hello2/local/share
+creating /home/kazuma/ros2_ws2/install/hello2/local/share/ament_index
+creating /home/kazuma/ros2_ws2/install/hello2/local/share/ament_index/resource_index
+creating /home/kazuma/ros2_ws2/install/hello2/local/share/ament_index/resource_index/packages
+copying resource/hello2 -> /home/kazuma/ros2_ws2/install/hello2/local/share/ament_index/resource_index/packages
+creating /home/kazuma/ros2_ws2/install/hello2/local/share/hello2
+copying package.xml -> /home/kazuma/ros2_ws2/install/hello2/local/share/hello2
+running install_egg_info
+Copying ../../build/hello2/hello2.egg-info to /home/kazuma/ros2_ws2/install/hello2/local/lib/python3.10/dist-packages/hello2-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/kazuma/ros2_ws2/build/hello2/install.log'

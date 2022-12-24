@@ -1,0 +1,1 @@
+/home/kazuma/ros2_ws2/src/local/launch/rviz2.launch.py

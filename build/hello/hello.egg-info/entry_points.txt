@@ -1,0 +1,3 @@
+[console_scripts]
+listener = hello.subscriber_member_function:main
+talker = hello.publisher_member_function:main

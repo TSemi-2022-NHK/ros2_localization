@@ -1,0 +1,36 @@
+running egg_info
+creating ../../build/ros2_loc/ros2_loc.egg-info
+writing ../../build/ros2_loc/ros2_loc.egg-info/PKG-INFO
+writing dependency_links to ../../build/ros2_loc/ros2_loc.egg-info/dependency_links.txt
+writing requirements to ../../build/ros2_loc/ros2_loc.egg-info/requires.txt
+writing top-level names to ../../build/ros2_loc/ros2_loc.egg-info/top_level.txt
+writing manifest file '../../build/ros2_loc/ros2_loc.egg-info/SOURCES.txt'
+reading manifest file '../../build/ros2_loc/ros2_loc.egg-info/SOURCES.txt'
+writing manifest file '../../build/ros2_loc/ros2_loc.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/kazuma/ros2_ws2/build/ros2_loc/build
+creating /home/kazuma/ros2_ws2/build/ros2_loc/build/lib
+creating /home/kazuma/ros2_ws2/build/ros2_loc/build/lib/ros2_loc
+copying ros2_loc/__init__.py -> /home/kazuma/ros2_ws2/build/ros2_loc/build/lib/ros2_loc
+running install
+running install_lib
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local/lib
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local/lib/python3.10
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local/lib/python3.10/dist-packages
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local/lib/python3.10/dist-packages/ros2_loc
+copying /home/kazuma/ros2_ws2/build/ros2_loc/build/lib/ros2_loc/__init__.py -> /home/kazuma/ros2_ws2/install/ros2_loc/local/lib/python3.10/dist-packages/ros2_loc
+byte-compiling /home/kazuma/ros2_ws2/install/ros2_loc/local/lib/python3.10/dist-packages/ros2_loc/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local/share
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local/share/ament_index
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local/share/ament_index/resource_index
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local/share/ament_index/resource_index/packages
+copying resource/ros2_loc -> /home/kazuma/ros2_ws2/install/ros2_loc/local/share/ament_index/resource_index/packages
+creating /home/kazuma/ros2_ws2/install/ros2_loc/local/share/ros2_loc
+copying package.xml -> /home/kazuma/ros2_ws2/install/ros2_loc/local/share/ros2_loc
+running install_egg_info
+Copying ../../build/ros2_loc/ros2_loc.egg-info to /home/kazuma/ros2_ws2/install/ros2_loc/local/lib/python3.10/dist-packages/ros2_loc-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/kazuma/ros2_ws2/build/ros2_loc/install.log'

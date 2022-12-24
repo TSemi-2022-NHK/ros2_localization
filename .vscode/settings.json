@@ -1,0 +1,20 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/kazuma/ros2_ws3/install/hello/lib/python3.10/site-packages",
+        "/home/kazuma/ros2_ws2/install/ros2_loc/lib/python3.10/site-packages",
+        "/home/kazuma/ros2_ws2/install/hello/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/kazuma/ros2_ws3/install/hello/lib/python3.10/site-packages",
+        "/home/kazuma/ros2_ws2/install/ros2_loc/lib/python3.10/site-packages",
+        "/home/kazuma/ros2_ws2/install/hello/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "core": "cpp"
+    }
+}

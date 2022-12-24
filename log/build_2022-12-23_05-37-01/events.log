@@ -1,0 +1,8 @@
+[0.000000] (-) TimerEvent: {}
+[0.000115] (-) JobUnselected: {'identifier': 'hello'}
+[0.000158] (-) JobUnselected: {'identifier': 'loc_ros2'}
+[0.000187] (-) JobUnselected: {'identifier': 'ros2_loc'}
+[0.000208] (hello2) JobQueued: {'identifier': 'hello2', 'dependencies': OrderedDict([('loc_ros2', '/home/kazuma/ros2_ws2/install/loc_ros2')])}
+[0.000934] (hello2) JobStarted: {'identifier': 'hello2'}
+[0.015657] (hello2) JobEnded: {'identifier': 'hello2', 'rc': 1}
+[0.026201] (-) EventReactorShutdown: {}
