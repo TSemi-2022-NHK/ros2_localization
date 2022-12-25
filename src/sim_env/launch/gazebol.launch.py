@@ -6,7 +6,6 @@ from launch.actions import ExecuteProcess
 from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
-
     package_dir = get_package_share_directory("sim_env")
     urdf = os.path.join(package_dir, "urdf" , "first_robot.urdf")
     rviz = os.path.join(package_dir, "rviz" , "first_robot.rviz")

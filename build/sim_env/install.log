@@ -5,6 +5,7 @@
 /home/kazuma/ros2_ws2/install/sim_env/share/sim_env/launch/gazebol.launch.py
 /home/kazuma/ros2_ws2/install/sim_env/share/sim_env/launch/rviz2.launch.py
 /home/kazuma/ros2_ws2/install/sim_env/share/sim_env/urdf/first_robot.urdf
+/home/kazuma/ros2_ws2/install/sim_env/share/sim_env/rviz/first_robot.rviz
 /home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages/sim_env-0.0.0-py3.10.egg-info/top_level.txt
 /home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages/sim_env-0.0.0-py3.10.egg-info/zip-safe
 /home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages/sim_env-0.0.0-py3.10.egg-info/SOURCES.txt

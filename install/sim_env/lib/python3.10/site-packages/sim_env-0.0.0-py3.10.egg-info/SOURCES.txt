@@ -10,6 +10,7 @@ setup.py
 launch/gazebol.launch.py
 launch/rviz2.launch.py
 resource/sim_env
+rviz/first_robot.rviz
 sim_env/__init__.py
 test/test_copyright.py
 test/test_flake8.py

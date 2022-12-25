@@ -1,0 +1,26 @@
+[1.599s] Invoking command in '/home/kazuma/ros2_ws2/src/ekf_lzp': PYTHONPATH=/home/kazuma/ros2_ws2/build/ekf_lzp/prefix_override:/home/kazuma/ros2_ws2/install/ekf_lzp/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ekf_lzp build --build-base /home/kazuma/ros2_ws2/build/ekf_lzp/build install --record /home/kazuma/ros2_ws2/build/ekf_lzp/install.log --single-version-externally-managed
+[2.071s] running egg_info
+[2.086s] writing ../../build/ekf_lzp/ekf_lzp.egg-info/PKG-INFO
+[2.086s] writing dependency_links to ../../build/ekf_lzp/ekf_lzp.egg-info/dependency_links.txt
+[2.087s] writing entry points to ../../build/ekf_lzp/ekf_lzp.egg-info/entry_points.txt
+[2.087s] writing requirements to ../../build/ekf_lzp/ekf_lzp.egg-info/requires.txt
+[2.087s] writing top-level names to ../../build/ekf_lzp/ekf_lzp.egg-info/top_level.txt
+[2.119s] reading manifest file '../../build/ekf_lzp/ekf_lzp.egg-info/SOURCES.txt'
+[2.120s] writing manifest file '../../build/ekf_lzp/ekf_lzp.egg-info/SOURCES.txt'
+[2.120s] running build
+[2.120s] running build_py
+[2.121s] copying ekf_lzp/ekf_node/ekf_node.py -> /home/kazuma/ros2_ws2/build/ekf_lzp/build/lib/ekf_lzp/ekf_node
+[2.121s] running install
+[2.122s] /home/kazuma/.local/lib/python3.10/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.122s]   warnings.warn(
+[2.129s] running install_lib
+[2.157s] copying /home/kazuma/ros2_ws2/build/ekf_lzp/build/lib/ekf_lzp/ekf_node/ekf_node.py -> /home/kazuma/ros2_ws2/install/ekf_lzp/lib/python3.10/site-packages/ekf_lzp/ekf_node
+[2.158s] byte-compiling /home/kazuma/ros2_ws2/install/ekf_lzp/lib/python3.10/site-packages/ekf_lzp/ekf_node/ekf_node.py to ekf_node.cpython-310.pyc
+[2.159s] running install_data
+[2.177s] running install_egg_info
+[2.194s] removing '/home/kazuma/ros2_ws2/install/ekf_lzp/lib/python3.10/site-packages/ekf_lzp-0.0.0-py3.10.egg-info' (and everything under it)
+[2.194s] Copying ../../build/ekf_lzp/ekf_lzp.egg-info to /home/kazuma/ros2_ws2/install/ekf_lzp/lib/python3.10/site-packages/ekf_lzp-0.0.0-py3.10.egg-info
+[2.195s] running install_scripts
+[2.266s] Installing ekf_main script to /home/kazuma/ros2_ws2/install/ekf_lzp/lib/ekf_lzp
+[2.266s] writing list of installed files to '/home/kazuma/ros2_ws2/build/ekf_lzp/install.log'
+[2.342s] Invoked command in '/home/kazuma/ros2_ws2/src/ekf_lzp' returned '0': PYTHONPATH=/home/kazuma/ros2_ws2/build/ekf_lzp/prefix_override:/home/kazuma/ros2_ws2/install/ekf_lzp/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/ekf_lzp build --build-base /home/kazuma/ros2_ws2/build/ekf_lzp/build install --record /home/kazuma/ros2_ws2/build/ekf_lzp/install.log --single-version-externally-managed

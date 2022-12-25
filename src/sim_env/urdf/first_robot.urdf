@@ -205,7 +205,7 @@
         <max_wheel_torque>20</max_wheel_torque>
         <max_wheel_acceleration>1.0</max_wheel_acceleration>
         <publish_odom>true</publish_odom>
-        <publish_odom_tf>false</publish_odom_tf>
+        <publish_odom_tf>true</publish_odom_tf>
         <publish_wheel_tf>true</publish_wheel_tf>
         <update_rate>30</update_rate>
 

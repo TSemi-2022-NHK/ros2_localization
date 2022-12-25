@@ -2,12 +2,13 @@ import rclpy
 from rclpy.node import Node
 from rclpy.duration import Duration
 
-from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3Stamped,TransformStamped, PoseStamped
+from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3Stamped, TransformStamped, PoseStamped
 from std_msgs.msg import Header
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import Imu
 from tf2_ros.buffer import Buffer
 from tf2_ros.transform_listener import TransformListener
+import tf2_geometry_msgs
 
 from ekf_lzp.ekf import ekf
 import numpy as np
@@ -22,20 +23,26 @@ class EkfNode(Node):
         #publisher, subscriber定義
         self.x_est = self.create_publisher(Pose, '/current_pose', 10) #推定位置
 
-        self.imu_sub = self.create_subscription(Imu, '/imu', self.imu_callback,10) #imuデータ
-        self.odom_sub = self.create_subscription(Odometry, '/odom', self.odom_callback, 10) #odomデータ
+        self.imu_sub = self.create_subscription(Imu, '/first_robot/imu', self.imu_callback,10) #imuデータ
+        self.odom_sub = self.create_subscription(Odometry, '/first_robot/odom', self.odom_callback, 10) #odomデータ
         self.initial_state = self.create_subscription(Pose, '/initial_pose', self.initialpose_callback,10) #初期位置
 
         #もろもろの変数
-        self.acc_in = np.matrix([0.0, 0.0, 0.0])
-        self.acc_out = np.matrix([0.0, 0.0, 0.0])
-        self.w_in = np.matrix([0.0, 0.0, 0.0])
-        self.W_out = np.matrix([0.0, 0.0, 0.0])
+        #self.acc_in = np.matrix([0.0, 0.0, 0.0]).T
+        #self.acc_out = np.matrix([0.0, 0.0, 0.0]).T
+        #self.w_in = np.matrix([0.0, 0.0, 0.0]).T
+        #self.w_out = np.matrix([0.0, 0.0, 0.0]).T
 
-        self.odompose = np.matrix([0.0, 0.0, 0.0])
-        self.odomtwist = np.matrix([0.0, 0.0, 0.0])
-        self.odompose_out = np.matrix([0.0, 0.0, 0.0])
-        self.odomtwist_out = np.matrix([0.0, 0.0, 0.0])
+        self.acc_in = Vector3Stamped()
+        self.w_in = Vector3Stamped()
+
+        #self.odompose = np.matrix([0.0, 0.0, 0.0]).T
+        #self.odomtwist = np.matrix([0.0, 0.0, 0.0]).T
+        #self.odompose_out = np.matrix([0.0, 0.0, 0.0]).T
+        #self.odomtwist_out = np.matrix([0.0, 0.0, 0.0]).T
+
+        self.odompose = Vector3Stamped()
+        self.odomtwist = Vector3Stamped()
 
 
         self.robot_frame_id = "base_link" #ロボットのframeidを指定
@@ -54,103 +61,118 @@ class EkfNode(Node):
     #コールバック関数たち
     #初期位置を取得
     def initialpose_callback(self, msg):
-        self.ekf.x[0] = msg.position.x
-        self.ekf.x[1] = msg.position.y
-        self.ekf.x[2] = msg.position.z
-        self.ekf.x[6] = msg.orientation.x
-        self.ekf.x[7] = msg.orientation.y
-        self.ekf.x[8] = msg.orientation.z
-        self.ekf.x[9] = msg.orientation.w
+        self.ekf.x[0, 0] = msg.position.x
+        self.ekf.x[1, 0] = msg.position.y
+        self.ekf.x[2, 0] = msg.position.z
+        self.ekf.x[6, 0] = msg.orientation.x
+        self.ekf.x[7, 0] = msg.orientation.y
+        self.ekf.x[8, 0] = msg.orientation.z
+        self.ekf.x[9, 0] = msg.orientation.w
 
 
     #imuメッセージを処理
     def imu_callback(self, msg):
-        self.acc_in[0] = msg.linear_acceleration.x
-        self.acc_in[1] = msg.linear_acceleration.y
-        self.acc_in[2] = msg.linear_acceleration.z
-        self.w_in[0] = msg.angular_velocity.x
-        self.w_in[1] = msg.angular_velocity.y
-        self.w_in[2] = msg.angular_velocity.z
+        #変換前
+        #self.acc_in[0, 0] = msg.linear_acceleration.x
+        #self.acc_in[1, 0] = msg.linear_acceleration.y
+        #self.acc_in[2, 0] = msg.linear_acceleration.z
+        #self.w_in[0, 0] = msg.angular_velocity.x
+        #self.w_in[1, 0] = msg.angular_velocity.y
+        #self.w_in[2, 0] = msg.angular_velocity.z
+
+        self.acc_in.vector.x = msg.linear_acceleration.x
+        self.acc_in.vector.y = msg.linear_acceleration.y
+        self.acc_in.vector.z = msg.linear_acceleration.z
+        self.w_in.vector.x = msg.angular_velocity.x
+        self.w_in.vector.y = msg.angular_velocity.y
+        self.w_in.vector.z = msg.angular_velocity.z
 
         sec = msg.header.stamp.sec
-        nanosec = msg.header.stamp.nsec
-        time_point = Duration(sec = sec, nanoseconds = nanosec)
+        nanosec = msg.header.stamp.nanosec
+        time_point = Duration(seconds = sec, nanoseconds = nanosec)
 
         now = self.get_clock().now() - time_point
 
-        transform = self.buffer.lookup_transform( #2つのframeidからtransformを取得するらしい
-                      target_frame = self.robot_frame_id,
-                      source_frame = msg.header.frame_id,
-                      now = now,
-                      time=time_point
+        transform = self.buffer.lookup_transform( #2つのframeidからtransformを取得するらしい,　transformはTransformStamped型
+                      target_frame = msg.header.frame_id,
+                      source_frame = self.robot_frame_id,
+                      time = now,
+                      timeout =time_point
                     )
 
-        self.acc_out = self.buffer.transform(transform, self.acc_in, time_point) #tf変換処理
-        self.w_out = self.buffer.transform(transform, self.w_in, time_point) 
+        acc_out = tf2_geometry_msgs.do_transform_vector3(self.acc_in, transform) #transformstamped型をvector3型に直す処理
+        w_out = tf2_geometry_msgs.do_transform_vector3(self.w_in,  transform) 
 
+        #変換後
         transformed_msg = Imu()
         transformed_msg.header.stamp = msg.header.stamp
-        transformed_msg.angular_velocity.x = self.w_out.vector.x
-        transformed_msg.angular_velocity.y = self.w_out.vector.y           
-        transformed_msg.angular_velocity.z = self.w_out.vector.z
-        transformed_msg.linear_acceleration.x = self.acc_out.vector.x
-        transformed_msg.linear_acceleration.y = self.acc_out.vector.y
-        transformed_msg.linear_acceleration.z = self.acc_out.vector.z
+        transformed_msg.angular_velocity.x = w_out.vector.x
+        transformed_msg.angular_velocity.y = w_out.vector.y           
+        transformed_msg.angular_velocity.z = w_out.vector.z
+        transformed_msg.linear_acceleration.x = acc_out.vector.x
+        transformed_msg.linear_acceleration.y = acc_out.vector.y
+        transformed_msg.linear_acceleration.z = acc_out.vector.z
 
         self.ekf.predict(transformed_msg) #tf変換処理してからpredictへ
-
-        self.get_logger().info("Subscribe : " + msg.data)
 
 
     #odomメッセージを処理
     def odom_callback(self, msg):
-        sec = msg.header.stamp.sec
-        nanosec = msg.header.stamp.nsec
-        time_point = Duration(sec = sec, nanoseconds = nanosec)
+        #sec = msg.header.stamp.sec
+        #nanosec = msg.header.stamp.nanosec
+        #time_point = Duration(seconds = sec, nanoseconds = nanosec)
 
-        now = self.get_clock().now() - time_point
+        #now = self.get_clock().now() - time_point
 
-        trans= self.buffer.lookup_transform( #2つのframeidからtransformを取得するらしい buffer２ついる?
-                      target_frame = self.robot_frame_id,
-                      source_frame = msg.header.frame_id,
-                      now = now,
-                      time=time_point
-                    )
+        #trans= self.buffer.lookup_transform( #2つのframeidからtransformを取得するらしい
+        #              target_frame = msg.header.frame_id,
+        #              source_frame = self.robot_frame_id,
+        #              time = now,
+        #              timeout =time_point
+        #            )
 
-        self.odompose[0] = msg.pose.pose.position.x
-        self.odompose[1] = msg.pose.pose.position.y
-        self.odompose[2] = msg.pose.pose.position.z
-        self.odomtwist[0] = msg.twist.twist.linear.x
-        self.odomtwist[1] = msg.twist.twist.linear.y
-        self.odomtwist[2] = msg.twist.twist.linear.z
+        #変換前
+        #self.odompose[0, 0] = msg.pose.pose.position.x
+        #self.odompose[1, 0] = msg.pose.pose.position.y
+        #self.odompose[2, 0] = msg.pose.pose.position.z
+        #self.odomtwist[0, 0] = msg.twist.twist.linear.x
+        #self.odomtwist[1, 0] = msg.twist.twist.linear.y
+        #self.odomtwist[2, 0] = msg.twist.twist.linear.z
 
-        self.odompose_out = self.buffer.transform(trans, self.odompose, time_point) #tf変換処理
-        self.odomtwist_out = self.buffer.transform(trans, self.odomtwist, time_point) 
+        self.odompose.vector.x = msg.pose.pose.position.x
+        self.odompose.vector.y = msg.pose.pose.position.y
+        self.odompose.vector.z = msg.pose.pose.position.z
+        self.odomtwist.vector.x = msg.twist.twist.linear.x
+        self.odomtwist.vector.y = msg.twist.twist.linear.y
+        self.odomtwist.vector.z = msg.twist.twist.linear.z
 
-        transformed_msg = Odometry()
-        transformed_msg.header.stamp = msg.header.stamp
-        transformed_msg.pose.pose.position.x = self.odompose_out.vector.x
-        transformed_msg.pose.pose.position.y = self.odompose_out.vector.y           
-        transformed_msg.pose.pose.position.z = self.odompose_out.vector.z
-        transformed_msg.twist.twist.linear.x = self.odomtwist_out.vector.x
-        transformed_msg.twist.twist.linear.y = self.odomtwist_out.vector.y
-        transformed_msg.twist.twist.linear.z = self.odomtwist_out.vector.z
+        #odompose_out = tf2_geometry_msgs.do_transform_vector3(self.odompose, trans) #transformstamped型をvector3型に直す処理
+        #odomtwist_out = tf2_geometry_msgs.do_transform_vector3(self.odomtwist, trans) 
 
-        z = np.matrix([self.odompose_out.vector.x, self.odompose_out.vector.y, self.odompose_out.vector.z])
+        #変換後
+        #transformed_msg = Odometry()
+        #transformed_msg.header.stamp = msg.header.stamp
+        #transformed_msg.pose.pose.position.x = odompose_out.vector.x
+        #transformed_msg.pose.pose.position.y = odompose_out.vector.y           
+        #transformed_msg.pose.pose.position.z = odompose_out.vector.z
+        #transformed_msg.twist.twist.linear.x = odomtwist_out.vector.x
+        #transformed_msg.twist.twist.linear.y = odomtwist_out.vector.y
+        #transformed_msg.twist.twist.linear.z = odomtwist_out.vector.z
+
+        #z = np.matrix([self.odompose_out.vector.x, self.odompose_out.vector.y, self.odompose_out.vector.z])
+
+        z = np.matrix([self.odompose.vector.x, self.odompose.vector.y, self.odompose.vector.z])
 
         self.ekf.ekf_estimation(z) #観測値に相当
-
-        self.get_logger().info("Subscribe : " + msg.data)
-
 
     #1秒ごとに実行
     def timer_callback(self):
         position = Pose() 
 
         #更新後の位置を取得
-        position.position.x = self.ekf.x[0]
-        position.position.y = self.ekf.x[1]
-        position.position.z = self.ekf.x[2]
+        position.position.x = self.ekf.x[0, 0]
+        position.position.y = self.ekf.x[1, 0]
+        position.position.z = self.ekf.x[2, 0]
 
         self.x_est.publish(position) #更新後の位置をpublish
 
