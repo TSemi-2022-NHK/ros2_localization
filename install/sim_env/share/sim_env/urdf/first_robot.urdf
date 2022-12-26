@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <robot name="rover">
-
     <!-- main center object -->
     <link name="base_link">
         <visual>
@@ -30,6 +29,7 @@
         <child link="base_footprint"/>
         <origin xyz="0.0 0.0 -0.075" rpy="0 0 0"/>
     </joint>
+
 
     <!-- front right wheel object -->
     <link name="wheel_front_right">
@@ -127,7 +127,6 @@
     </material>
   </visual>
 </link>
-
 <!-- add camera joint -->
 <joint name="camera_joint" type="fixed">
   <origin xyz="-0.175 0 0.1" rpy="0 0.0 3.14"/>
@@ -151,7 +150,6 @@
     </material>
   </visual>
 </link>
-
 <!-- add lidar joint -->
 <joint name="lidar_joint" type="fixed">
   <origin xyz="-0.215 0 0.0" rpy="0 0.0 1.57"/>
@@ -180,7 +178,6 @@
     </geometry>
   </collision>
 </link>
-
 <!-- add imu joint -->
 <joint name="imu_joint" type="fixed">
   <origin xyz="0 0 0.075" rpy="0 0 0"/>
@@ -206,14 +203,17 @@
         <max_wheel_acceleration>1.0</max_wheel_acceleration>
         <publish_odom>true</publish_odom>
         <publish_odom_tf>true</publish_odom_tf>
-        <publish_wheel_tf>true</publish_wheel_tf>
+        <publish_wheel_tf>false</publish_wheel_tf>
+        
         <update_rate>30</update_rate>
 
         <odometry_topic>odom</odometry_topic>
         <odometry_frame>odom</odometry_frame>
-        <base_frame_id>base_footprint</base_frame_id>
+        <base_frame_id>base_link</base_frame_id>
         <robot_base_frame>base_link</robot_base_frame>
         <command_topic>cmd_vel</command_topic>
+
+        <publish_tf>true</publish_tf>
     </plugin>
 </gazebo>
 

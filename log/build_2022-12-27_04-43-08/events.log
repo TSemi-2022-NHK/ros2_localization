@@ -1,0 +1,134 @@
+[0.000000] (-) TimerEvent: {}
+[0.000970] (-) JobUnselected: {'identifier': 'ekf_lzp'}
+[0.001895] (sim_env) JobQueued: {'identifier': 'sim_env', 'dependencies': OrderedDict()}
+[0.007399] (sim_env) JobStarted: {'identifier': 'sim_env'}
+[0.099755] (-) TimerEvent: {}
+[0.200160] (-) TimerEvent: {}
+[0.300877] (-) TimerEvent: {}
+[0.402053] (-) TimerEvent: {}
+[0.502724] (-) TimerEvent: {}
+[0.603255] (-) TimerEvent: {}
+[0.703936] (-) TimerEvent: {}
+[0.804908] (-) TimerEvent: {}
+[0.905571] (-) TimerEvent: {}
+[1.006399] (-) TimerEvent: {}
+[1.107605] (-) TimerEvent: {}
+[1.208326] (-) TimerEvent: {}
+[1.309684] (-) TimerEvent: {}
+[1.410640] (-) TimerEvent: {}
+[1.511396] (-) TimerEvent: {}
+[1.612126] (-) TimerEvent: {}
+[1.712613] (-) TimerEvent: {}
+[1.813239] (-) TimerEvent: {}
+[1.914622] (-) TimerEvent: {}
+[2.015460] (-) TimerEvent: {}
+[2.116149] (-) TimerEvent: {}
+[2.216995] (-) TimerEvent: {}
+[2.318432] (-) TimerEvent: {}
+[2.419902] (-) TimerEvent: {}
+[2.521511] (-) TimerEvent: {}
+[2.623035] (-) TimerEvent: {}
+[2.724274] (-) TimerEvent: {}
+[2.825208] (-) TimerEvent: {}
+[2.926905] (-) TimerEvent: {}
+[3.028343] (-) TimerEvent: {}
+[3.129138] (-) TimerEvent: {}
+[3.229569] (-) TimerEvent: {}
+[3.330166] (-) TimerEvent: {}
+[3.431659] (-) TimerEvent: {}
+[3.532625] (-) TimerEvent: {}
+[3.633868] (-) TimerEvent: {}
+[3.734678] (-) TimerEvent: {}
+[3.835672] (-) TimerEvent: {}
+[3.936886] (-) TimerEvent: {}
+[4.037598] (-) TimerEvent: {}
+[4.138324] (-) TimerEvent: {}
+[4.239022] (-) TimerEvent: {}
+[4.340396] (-) TimerEvent: {}
+[4.441238] (-) TimerEvent: {}
+[4.542541] (-) TimerEvent: {}
+[4.642995] (-) TimerEvent: {}
+[4.743792] (-) TimerEvent: {}
+[4.844235] (-) TimerEvent: {}
+[4.944829] (-) TimerEvent: {}
+[5.045594] (-) TimerEvent: {}
+[5.146901] (-) TimerEvent: {}
+[5.247716] (-) TimerEvent: {}
+[5.348537] (-) TimerEvent: {}
+[5.449296] (-) TimerEvent: {}
+[5.549843] (-) TimerEvent: {}
+[5.650748] (-) TimerEvent: {}
+[5.751984] (-) TimerEvent: {}
+[5.852677] (-) TimerEvent: {}
+[5.953748] (-) TimerEvent: {}
+[6.055242] (-) TimerEvent: {}
+[6.156621] (-) TimerEvent: {}
+[6.257341] (-) TimerEvent: {}
+[6.358575] (-) TimerEvent: {}
+[6.459445] (-) TimerEvent: {}
+[6.560853] (-) TimerEvent: {}
+[6.661941] (-) TimerEvent: {}
+[6.763602] (-) TimerEvent: {}
+[6.864438] (-) TimerEvent: {}
+[6.965337] (-) TimerEvent: {}
+[7.066970] (-) TimerEvent: {}
+[7.149277] (sim_env) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/sim_env', 'build', '--build-base', '/home/kazuma/ros2_ws2/build/sim_env/build', 'install', '--record', '/home/kazuma/ros2_ws2/build/sim_env/install.log', '--single-version-externally-managed'], 'cwd': '/home/kazuma/ros2_ws2/src/sim_env', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ja:en', 'USER': 'kazuma', 'LC_TIME': 'ja_JP.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kazuma/.mujoco/mujoco210/bin:/home/kazuma/.mujoco/mujoco210/bin', 'HOME': '/home/kazuma', 'CHROME_DESKTOP': 'code-url-handler.desktop', 'TERM_PROGRAM_VERSION': '1.74.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'ja_JP.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'MANAGERPID': '1640', 'SYSTEMD_EXEC_PID': '1827', 'IM_CONFIG_CHECK_ENV': '1', 'UNZIP': '-O CP932', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3821', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/kazuma/ros2_ws2/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'kazuma', 'JOURNAL_STREAM': '8:25570', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'kazuma', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/kazuma/.local/bin:/opt/ros/humble/bin:/home/kazuma/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/lib/jvm/java-11-openjdk-amd64/bin:/usr/lib/jvm/java-11-openjdk-amd64/bin', 'SESSION_MANAGER': 'local/kazuma-ThinkPad-X1-Carbon-6th:@/tmp/.ICE-unix/1802,unix/kazuma-ThinkPad-X1-Carbon-6th:/tmp/.ICE-unix/1802', 'INVOCATION_ID': 'a1a4a1fea76d4ae9a824e2b23badc2c0', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'ja_JP.UTF-8', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LANG': 'ja_JP.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'LC_TELEPHONE': 'ja_JP.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.4YEYX1', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-936fa9a430.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/kazuma/ros2_ws2/install/sim_env:/home/kazuma/ros2_ws2/install/ros2_loc:/home/kazuma/ros2_ws2/install/local:/home/kazuma/ros2_ws2/install/hello:/home/kazuma/ros2_ws2/install/ekf_lzp:/opt/ros/humble', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'SHELL': '/bin/bash', 'LC_NAME': 'ja_JP.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'ja_JP.UTF-8', 'GJS_DEBUG_OUTPUT': 'stderr', 'LC_IDENTIFICATION': 'ja_JP.UTF-8', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '--ms-enable-electron-run-as-node', 'QT_IM_MODULE': 'ibus', 'JAVA_HOME': '/usr/lib/jvm/java-11-openjdk-amd64', 'PWD': '/home/kazuma/ros2_ws2/build/sim_env', 'ZIPINFO': '-O CP932', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/kazuma/ros2_ws2/build/sim_env/prefix_override:/home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages:/home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages:/home/kazuma/ros2_ws2/install/ros2_loc/lib/python3.10/site-packages:/home/kazuma/ros2_ws2/install/hello2/lib/python3.10/site-packages:/home/kazuma/ros2_ws2/install/hello/lib/python3.10/site-packages:/home/kazuma/ros2_ws2/install/ekf_lzp/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'ja_JP.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/kazuma/ros2_ws2/install/local'}, 'shell': False}
+[7.167269] (-) TimerEvent: {}
+[7.268163] (-) TimerEvent: {}
+[7.368959] (-) TimerEvent: {}
+[7.470393] (-) TimerEvent: {}
+[7.571763] (-) TimerEvent: {}
+[7.672341] (-) TimerEvent: {}
+[7.773215] (-) TimerEvent: {}
+[7.874011] (-) TimerEvent: {}
+[7.975188] (-) TimerEvent: {}
+[8.076485] (-) TimerEvent: {}
+[8.177897] (-) TimerEvent: {}
+[8.278715] (-) TimerEvent: {}
+[8.379582] (-) TimerEvent: {}
+[8.480571] (-) TimerEvent: {}
+[8.581498] (-) TimerEvent: {}
+[8.682878] (-) TimerEvent: {}
+[8.784232] (-) TimerEvent: {}
+[8.884919] (-) TimerEvent: {}
+[8.985899] (-) TimerEvent: {}
+[9.086774] (-) TimerEvent: {}
+[9.187599] (-) TimerEvent: {}
+[9.288387] (-) TimerEvent: {}
+[9.389132] (-) TimerEvent: {}
+[9.490466] (-) TimerEvent: {}
+[9.591768] (-) TimerEvent: {}
+[9.692715] (-) TimerEvent: {}
+[9.719995] (sim_env) StdoutLine: {'line': b'running egg_info\n'}
+[9.793120] (-) TimerEvent: {}
+[9.819689] (sim_env) StdoutLine: {'line': b'writing ../../build/sim_env/sim_env.egg-info/PKG-INFO\n'}
+[9.820468] (sim_env) StdoutLine: {'line': b'writing dependency_links to ../../build/sim_env/sim_env.egg-info/dependency_links.txt\n'}
+[9.821584] (sim_env) StdoutLine: {'line': b'writing requirements to ../../build/sim_env/sim_env.egg-info/requires.txt\n'}
+[9.822633] (sim_env) StdoutLine: {'line': b'writing top-level names to ../../build/sim_env/sim_env.egg-info/top_level.txt\n'}
+[9.893311] (-) TimerEvent: {}
+[9.994022] (-) TimerEvent: {}
+[10.004635] (sim_env) StdoutLine: {'line': b"reading manifest file '../../build/sim_env/sim_env.egg-info/SOURCES.txt'\n"}
+[10.011030] (sim_env) StdoutLine: {'line': b"writing manifest file '../../build/sim_env/sim_env.egg-info/SOURCES.txt'\n"}
+[10.011968] (sim_env) StdoutLine: {'line': b'running build\n'}
+[10.012350] (sim_env) StdoutLine: {'line': b'running build_py\n'}
+[10.012945] (sim_env) StdoutLine: {'line': b'running install\n'}
+[10.013455] (sim_env) StderrLine: {'line': b'/home/kazuma/.local/lib/python3.10/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n'}
+[10.013956] (sim_env) StderrLine: {'line': b'  warnings.warn(\n'}
+[10.049258] (sim_env) StdoutLine: {'line': b'running install_lib\n'}
+[10.094329] (-) TimerEvent: {}
+[10.195247] (-) TimerEvent: {}
+[10.207399] (sim_env) StdoutLine: {'line': b'running install_data\n'}
+[10.295623] (-) TimerEvent: {}
+[10.303813] (sim_env) StdoutLine: {'line': b'running install_egg_info\n'}
+[10.395697] (-) TimerEvent: {}
+[10.402935] (sim_env) StdoutLine: {'line': b"removing '/home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages/sim_env-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[10.404004] (sim_env) StdoutLine: {'line': b'Copying ../../build/sim_env/sim_env.egg-info to /home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages/sim_env-0.0.0-py3.10.egg-info\n'}
+[10.407901] (sim_env) StdoutLine: {'line': b'running install_scripts\n'}
+[10.495923] (-) TimerEvent: {}
+[10.596527] (-) TimerEvent: {}
+[10.671873] (sim_env) StdoutLine: {'line': b"writing list of installed files to '/home/kazuma/ros2_ws2/build/sim_env/install.log'\n"}
+[10.696722] (-) TimerEvent: {}
+[10.797389] (-) TimerEvent: {}
+[10.818691] (sim_env) CommandEnded: {'returncode': 0}
+[10.875776] (sim_env) JobEnded: {'identifier': 'sim_env', 'rc': 0}
+[10.877708] (-) EventReactorShutdown: {}

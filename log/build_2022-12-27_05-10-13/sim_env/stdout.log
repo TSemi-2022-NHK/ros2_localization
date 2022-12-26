@@ -1,0 +1,18 @@
+running egg_info
+writing ../../build/sim_env/sim_env.egg-info/PKG-INFO
+writing dependency_links to ../../build/sim_env/sim_env.egg-info/dependency_links.txt
+writing requirements to ../../build/sim_env/sim_env.egg-info/requires.txt
+writing top-level names to ../../build/sim_env/sim_env.egg-info/top_level.txt
+reading manifest file '../../build/sim_env/sim_env.egg-info/SOURCES.txt'
+writing manifest file '../../build/sim_env/sim_env.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+copying urdf/first_robot.urdf -> /home/kazuma/ros2_ws2/install/sim_env/share/sim_env/urdf
+running install_egg_info
+removing '/home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages/sim_env-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/sim_env/sim_env.egg-info to /home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages/sim_env-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/kazuma/ros2_ws2/build/sim_env/install.log'

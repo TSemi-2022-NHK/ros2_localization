@@ -3,6 +3,7 @@ from rclpy.node import Node
 from rclpy.duration import Duration
 
 from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3Stamped, TransformStamped, PoseStamped
+from builtin_interfaces.msg import Time 
 from std_msgs.msg import Header
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import Imu
@@ -21,11 +22,12 @@ class EkfNode(Node):
         super().__init__("ekf_node")
 
         #publisher, subscriber定義
-        self.x_est = self.create_publisher(Pose, '/current_pose', 10) #推定位置
+        self.x_est = self.create_publisher(PoseStamped, '/current_pose', 10) #推定位置
 
         self.imu_sub = self.create_subscription(Imu, '/first_robot/imu', self.imu_callback,10) #imuデータ
         self.odom_sub = self.create_subscription(Odometry, '/first_robot/odom', self.odom_callback, 10) #odomデータ
-        self.initial_state = self.create_subscription(Pose, '/initial_pose', self.initialpose_callback,10) #初期位置
+        self.initial_state = self.create_subscription(PoseStamped, '/initial_pose', self.initialpose_callback,10) #初期位置
+
 
         #もろもろの変数
         #self.acc_in = np.matrix([0.0, 0.0, 0.0]).T
@@ -35,6 +37,7 @@ class EkfNode(Node):
 
         self.acc_in = Vector3Stamped()
         self.w_in = Vector3Stamped()
+        self.imu_time = Time()
 
         #self.odompose = np.matrix([0.0, 0.0, 0.0]).T
         #self.odomtwist = np.matrix([0.0, 0.0, 0.0]).T
@@ -61,25 +64,19 @@ class EkfNode(Node):
     #コールバック関数たち
     #初期位置を取得
     def initialpose_callback(self, msg):
-        self.ekf.x[0, 0] = msg.position.x
-        self.ekf.x[1, 0] = msg.position.y
-        self.ekf.x[2, 0] = msg.position.z
-        self.ekf.x[6, 0] = msg.orientation.x
-        self.ekf.x[7, 0] = msg.orientation.y
-        self.ekf.x[8, 0] = msg.orientation.z
-        self.ekf.x[9, 0] = msg.orientation.w
+        self.ekf.x[0, 0] = msg.pose.position.x
+        self.ekf.x[1, 0] = msg.pose.position.y
+        self.ekf.x[2, 0] = msg.pose.position.z
+        self.ekf.x[6, 0] = msg.pose.orientation.x
+        self.ekf.x[7, 0] = msg.pose.orientation.y
+        self.ekf.x[8, 0] = msg.pose.orientation.z
+        self.ekf.x[9, 0] = msg.pose.orientation.w
 
 
     #imuメッセージを処理
     def imu_callback(self, msg):
         #変換前
-        #self.acc_in[0, 0] = msg.linear_acceleration.x
-        #self.acc_in[1, 0] = msg.linear_acceleration.y
-        #self.acc_in[2, 0] = msg.linear_acceleration.z
-        #self.w_in[0, 0] = msg.angular_velocity.x
-        #self.w_in[1, 0] = msg.angular_velocity.y
-        #self.w_in[2, 0] = msg.angular_velocity.z
-
+        self.imu_time = msg.header.stamp
         self.acc_in.vector.x = msg.linear_acceleration.x
         self.acc_in.vector.y = msg.linear_acceleration.y
         self.acc_in.vector.z = msg.linear_acceleration.z
@@ -105,7 +102,7 @@ class EkfNode(Node):
 
         #変換後
         transformed_msg = Imu()
-        transformed_msg.header.stamp = msg.header.stamp
+        transformed_msg.header.stamp = self.imu_time
         transformed_msg.angular_velocity.x = w_out.vector.x
         transformed_msg.angular_velocity.y = w_out.vector.y           
         transformed_msg.angular_velocity.z = w_out.vector.z
@@ -130,14 +127,6 @@ class EkfNode(Node):
         #              time = now,
         #              timeout =time_point
         #            )
-
-        #変換前
-        #self.odompose[0, 0] = msg.pose.pose.position.x
-        #self.odompose[1, 0] = msg.pose.pose.position.y
-        #self.odompose[2, 0] = msg.pose.pose.position.z
-        #self.odomtwist[0, 0] = msg.twist.twist.linear.x
-        #self.odomtwist[1, 0] = msg.twist.twist.linear.y
-        #self.odomtwist[2, 0] = msg.twist.twist.linear.z
 
         self.odompose.vector.x = msg.pose.pose.position.x
         self.odompose.vector.y = msg.pose.pose.position.y
@@ -167,15 +156,20 @@ class EkfNode(Node):
 
     #1秒ごとに実行
     def timer_callback(self):
-        position = Pose() 
+        position = PoseStamped() 
 
-        #更新後の位置を取得
-        position.position.x = self.ekf.x[0, 0]
-        position.position.y = self.ekf.x[1, 0]
-        position.position.z = self.ekf.x[2, 0]
+        #更新後の状態量を取得
+        position.header.stamp = self.imu_time #timestampはimuのものを使用
+        position.header.frame_id = 'odom'
+        position.pose.position.x = self.ekf.x[0, 0]
+        position.pose.position.y = self.ekf.x[1, 0]
+        position.pose.position.z = self.ekf.x[2, 0]
+        position.pose.orientation.x = self.ekf.x[6, 0]
+        position.pose.orientation.y = self.ekf.x[7, 0]
+        position.pose.orientation.z = self.ekf.x[8, 0]
+        position.pose.orientation.w = self.ekf.x[9, 0]
 
         self.x_est.publish(position) #更新後の位置をpublish
-
 
 
 

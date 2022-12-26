@@ -1,0 +1,22 @@
+[1.582s] Invoking command in '/home/kazuma/ros2_ws2/src/sim_env': PYTHONPATH=/home/kazuma/ros2_ws2/build/sim_env/prefix_override:/home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/sim_env build --build-base /home/kazuma/ros2_ws2/build/sim_env/build install --record /home/kazuma/ros2_ws2/build/sim_env/install.log --single-version-externally-managed
+[2.012s] running egg_info
+[2.029s] writing ../../build/sim_env/sim_env.egg-info/PKG-INFO
+[2.029s] writing dependency_links to ../../build/sim_env/sim_env.egg-info/dependency_links.txt
+[2.029s] writing requirements to ../../build/sim_env/sim_env.egg-info/requires.txt
+[2.030s] writing top-level names to ../../build/sim_env/sim_env.egg-info/top_level.txt
+[2.060s] reading manifest file '../../build/sim_env/sim_env.egg-info/SOURCES.txt'
+[2.061s] writing manifest file '../../build/sim_env/sim_env.egg-info/SOURCES.txt'
+[2.062s] running build
+[2.062s] running build_py
+[2.062s] running install
+[2.062s] /home/kazuma/.local/lib/python3.10/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.062s]   warnings.warn(
+[2.068s] running install_lib
+[2.094s] running install_data
+[2.109s] copying urdf/first_robot.urdf -> /home/kazuma/ros2_ws2/install/sim_env/share/sim_env/urdf
+[2.109s] running install_egg_info
+[2.128s] removing '/home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages/sim_env-0.0.0-py3.10.egg-info' (and everything under it)
+[2.129s] Copying ../../build/sim_env/sim_env.egg-info to /home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages/sim_env-0.0.0-py3.10.egg-info
+[2.130s] running install_scripts
+[2.190s] writing list of installed files to '/home/kazuma/ros2_ws2/build/sim_env/install.log'
+[2.263s] Invoked command in '/home/kazuma/ros2_ws2/src/sim_env' returned '0': PYTHONPATH=/home/kazuma/ros2_ws2/build/sim_env/prefix_override:/home/kazuma/ros2_ws2/install/sim_env/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/sim_env build --build-base /home/kazuma/ros2_ws2/build/sim_env/build install --record /home/kazuma/ros2_ws2/build/sim_env/install.log --single-version-externally-managed

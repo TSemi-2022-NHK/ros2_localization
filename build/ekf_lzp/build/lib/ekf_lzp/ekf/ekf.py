@@ -3,7 +3,7 @@ from sensor_msgs.msg import Imu
 from scipy.spatial.transform import Rotation
 import quaternion #クオータニオン積計算用、こいつにも結構注意
 
-g = np.matrix([0, 0, 9.80665]).T
+g = np.matrix([0., 0., 9.80665]).T
 
 #カルマンフィルタ処理を行う
 class Ekf:
@@ -19,9 +19,9 @@ class Ekf:
 
 
     def skew(self, w): #3次元ベクトルを歪対称行列に変換するだけの関数
-        V = np.matrix([[0, -w[2, 0], w[1, 0]],
-                      [w[2, 0], 0, -w[0, 0]],
-                      [-w[1, 0], w[0, 0], 0]
+        V = np.matrix([[0., -w[2, 0], w[1, 0]],
+                      [w[2, 0], 0., -w[0, 0]],
+                      [-w[1, 0], w[0, 0], 0.]
         ])
 
         return V
@@ -34,22 +34,21 @@ class Ekf:
 
         #timestep
         self.current_time_imu = u.header.stamp.sec + u.header.stamp.nanosec * 1e-9
-        self.dt = self.current_time_imu - self.previous_time_imu
+        self.dt = self.current_time_imu - self.previous_time_imu #dtが0.5以上だと大きすぎる
         self.previous_time_imu = self.current_time_imu
 
         a_imu = np.matrix([u.linear_acceleration.x, u.linear_acceleration.y, u.linear_acceleration.z]).T
-        w_imu = np.matrix([u.angular_velocity.x, u.angular_velocity.y, u.angular_velocity.z]).T
 
         #wdt_quatの作成
-        rot_x = Rotation.from_rotvec([u.angular_velocity.x * self.dt, 0, 0]).as_matrix()
-        rot_y = Rotation.from_rotvec([0, u.angular_velocity.y * self.dt, 0]).as_matrix()
-        rot_z = Rotation.from_rotvec([0, 0, u.angular_velocity.z * self.dt]).as_matrix()
+        rot_x = Rotation.from_rotvec([u.angular_velocity.x * self.dt, 0., 0.]).as_matrix()
+        rot_y = Rotation.from_rotvec([0., u.angular_velocity.y * self.dt, 0.]).as_matrix()
+        rot_z = Rotation.from_rotvec([0., 0., u.angular_velocity.z * self.dt]).as_matrix()
         rot = rot_x * rot_y * rot_z
         wdt_quat = Rotation.from_matrix(rot).as_quat() #wdt合成クオータニオン(転地する必要あるかも?)
 
         #predict処理
-        if np.all(q == 0):
-            q = np.matrix([0, 0, 0, 1])
+        if np.all(q == 0.):
+            q = np.matrix([0., 0., 0., 0.5])
         
         q = q.squeeze()
         q = q.tolist() #Rotation.from_quatに渡すときのデータ型注意
@@ -57,17 +56,16 @@ class Ekf:
 
         #更新処理
         v = v + (Ro * a_imu - g) * self.dt
-        p = p + v * self.dt + 0.5 * (Ro * a_imu - g) * self.dt * self.dt
+        p = p + v * self.dt + 0.500 * (Ro * a_imu - g) * self.dt * self.dt
         q = np.array(q) #わざわざリストに変換してからまた戻すというあれ
         q = quaternion.as_quat_array(q)
         wdt_quat = quaternion.as_quat_array(wdt_quat)
         q = wdt_quat * q[0] #クオータニオン積
         
- 
         #Qの計算もここでしておく
         self.Q = np.zeros((6, 6))
-        self.Q[0:3, 0:3] = np.eye(3) * 0.33 #分散は0.33に設定
-        self.Q[3:6, 3:6] = np.eye(3) * 0.33
+        self.Q[0:3, 0:3] = np.eye(3) * 0.330#分散は0.33に設定
+        self.Q[3:6, 3:6] = np.eye(3) * 0.330
         self.Q = np.matrix(self.Q) #ちゃんとmatrixにする
     
         self.Q = self.Q * self.dt * self.dt
@@ -96,8 +94,8 @@ class Ekf:
         w_imu = np.matrix([u.angular_velocity.x, u.angular_velocity.y, u.angular_velocity.z]).T
         q = np.matrix([x[6, 0], x[7, 0], x[8, 0], x[9, 0]])
 
-        if np.all(q == 0):
-            q = np.matrix([0, 0, 0, 1])
+        if np.all(q == 0.):
+            q = np.matrix([0., 0., 0., 0.5])
         
         q = q.squeeze()
         q = q.tolist() #Rotation.from_quatに渡すときのデータ型注意
@@ -125,7 +123,7 @@ class Ekf:
     
 
     #観測値を統合
-    def ekf_estimation(self, z): #z:観測値(px, py, pz)
+    def ekf_estimation(self, z): #z:odomからの観測値(px, py, pz)
         jc = self.calc_jc()
         y = z - np.matrix([self.x[0, 0], self.x[1, 0], self.x[2, 0]])
         
@@ -148,7 +146,7 @@ class Ekf:
         q = np.matrix([self.x[6, 0], self.x[7, 0], self.x[8, 0], self.x[9, 0]])
 
         if np.all(q == 0):
-            q = np.matrix([0, 0, 0, 1])
+            q = np.matrix([0., 0., 0., 0.5])
 
         q = quaternion.as_quat_array(q)
         rot_q = quaternion.as_quat_array(rot_q)
