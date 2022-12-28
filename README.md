@@ -2,7 +2,7 @@
 
 - /src/ekf_lzpが自己位置推定パッケージで、/src/sim_envはgazeoシミュレーション環境立ち上げ用
 
-- rviz上に自己位置表示させるのをテスト中
+- 現状、うまく自己位置を拾えているぽいが回転の向きに対応できてない気がする
 
 - input  
 /initial_pose (geometry_msgs/PoseStamed)  
