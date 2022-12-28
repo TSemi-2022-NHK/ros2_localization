@@ -7,7 +7,7 @@ g = np.matrix([0., 0., 0.]).T
 
 #カルマンフィルタ処理を行う
 class Ekf:
-    def __init__(self, initial_x = np.matrix(np.zeros(10)).T, initial_p = np.eye(9) * 100):
+    def __init__(self, initial_x = np.matrix([0,0,0,0,0,0,0,0,0,1.]).T, initial_p = np.eye(9) * 100):
         self.x = initial_x #初期状態 np.matrix(x, y, z, vx, vy, vz, qx,qy, qz, qw).T　= (p v q).T
                            # = (位置座標 速度 クオータニオン)
         self.p = initial_p #共分散
@@ -140,16 +140,26 @@ class Ekf:
         self.x[4, 0] = self.x[4, 0] + dx[4, 0]
         self.x[5, 0] = self.x[5, 0] + dx[5, 0]
         #q
-        rot_q = Rotation.from_rotvec([dx[6, 0], dx[7, 0], dx[8, 0]]).as_quat()
+        #rot_q = Rotation.from_rotvec([dx[6, 0], dx[7, 0], dx[8, 0]]).as_quat()
+
+        norm_quat = np.sqrt(np.power(dx[6, 0], 2) + np.power(dx[7, 0], 2) + np.power(dx[8, 0], 2))
+
+        #dqの作成
+        if norm_quat < 1e-10:
+            dq = np.array([np.cos(norm_quat / 2), 0, 0, 0])
+        else:
+            dq = np.array([np.cos(norm_quat/2), np.sin(norm_quat/2)*dx[6, 0]/norm_quat, np.sin(norm_quat/2)*dx[7, 0]/norm_quat, np.sin(norm_quat/2)*dx[8, 0]/norm_quat])
+
+        #更新前
         q = np.matrix([self.x[6, 0], self.x[7, 0], self.x[8, 0], self.x[9, 0]])
 
         if np.all(q == 0):
             q = np.matrix([0., 0., 0., 0.30])
 
         q = quaternion.as_quat_array(q)
-        rot_q = quaternion.as_quat_array(rot_q)
+        dq = quaternion.as_quat_array(dq)
         
-        q = q[0] * rot_q
+        q = q[0] * dq
 
         self.x[6, 0] = q.w
         self.x[7, 0] = q.x
