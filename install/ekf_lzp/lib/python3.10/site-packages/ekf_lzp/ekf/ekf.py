@@ -3,7 +3,7 @@ from sensor_msgs.msg import Imu
 from scipy.spatial.transform import Rotation
 import quaternion #クオータニオン積計算用、こいつにも結構注意
 
-g = np.matrix([0., 0., 9.80665]).T
+g = np.matrix([0., 0., 0.]).T
 
 #カルマンフィルタ処理を行う
 class Ekf:
@@ -40,24 +40,22 @@ class Ekf:
         a_imu = np.matrix([u.linear_acceleration.x, u.linear_acceleration.y, u.linear_acceleration.z]).T
 
         #wdt_quatの作成
-        rot_x = Rotation.from_rotvec([u.angular_velocity.x * self.dt, 0., 0.]).as_matrix()
-        rot_y = Rotation.from_rotvec([0., u.angular_velocity.y * self.dt, 0.]).as_matrix()
-        rot_z = Rotation.from_rotvec([0., 0., u.angular_velocity.z * self.dt]).as_matrix()
+        rot_x = Rotation.from_rotvec([u.angular_velocity.x * self.dt, 0., 0.])
+        rot_y = Rotation.from_rotvec([0., u.angular_velocity.y * self.dt, 0.])
+        rot_z = Rotation.from_rotvec([0., 0., u.angular_velocity.z * self.dt])
         rot = rot_x * rot_y * rot_z
-        wdt_quat = Rotation.from_matrix(rot).as_quat() #wdt合成クオータニオン(転地する必要あるかも?)
+        wdt_quat = rot.as_quat() #wdt合成クオータニオン(転地する必要あるかも?)
 
-        #predict処理
+        #クオータニオンから回転行列算出
         if np.all(q == 0.):
-            q = np.matrix([0., 0., 0., 0.5])
-        
-        q = q.squeeze()
-        q = q.tolist() #Rotation.from_quatに渡すときのデータ型注意
+            q = np.matrix([0., 0., 0., 0.30])
+    
         Ro = Rotation.from_quat(q).as_matrix() #回転行列
 
         #更新処理
         v = v + (Ro * a_imu - g) * self.dt
         p = p + v * self.dt + 0.500 * (Ro * a_imu - g) * self.dt * self.dt
-        q = np.array(q) #わざわざリストに変換してからまた戻すというあれ
+        #q = np.array(q) #わざわざリストに変換してからまた戻すというあれ
         q = quaternion.as_quat_array(q)
         wdt_quat = quaternion.as_quat_array(wdt_quat)
         q = wdt_quat * q[0] #クオータニオン積
@@ -75,9 +73,9 @@ class Ekf:
 
     #予測値を計算
     def predict(self, u): #uはimuからの情報
-        self.x = self.motion_model(u) #ここでdtも計算
-
         jf = self.calc_jf(self.x, u)
+
+        self.x = self.motion_model(u) #ここでdtも計算
 
         L = np.zeros((9, 6))
         L[3:6, 0:3] = np.eye(3)
@@ -95,10 +93,10 @@ class Ekf:
         q = np.matrix([x[6, 0], x[7, 0], x[8, 0], x[9, 0]])
 
         if np.all(q == 0.):
-            q = np.matrix([0., 0., 0., 0.5])
+            q = np.matrix([0., 0., 0., 0.30])
         
-        q = q.squeeze()
-        q = q.tolist() #Rotation.from_quatに渡すときのデータ型注意
+        #q = q.squeeze()
+        #q = q.tolist() #Rotation.from_quatに渡すときのデータ型注意
     
         jf = np.zeros((9, 9))
         jf[0:3, 0:3] = np.eye(3)
@@ -146,7 +144,7 @@ class Ekf:
         q = np.matrix([self.x[6, 0], self.x[7, 0], self.x[8, 0], self.x[9, 0]])
 
         if np.all(q == 0):
-            q = np.matrix([0., 0., 0., 0.5])
+            q = np.matrix([0., 0., 0., 0.30])
 
         q = quaternion.as_quat_array(q)
         rot_q = quaternion.as_quat_array(rot_q)
